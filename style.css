@@ -1,0 +1,406 @@
+/* Meyer Reset*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*SETTINGS*/
+
+html {
+    --black: #333;
+    --white: #efefef;
+    --color: #3b82f6;
+    --dark: #1f2937;
+    --light: lightblue;
+    --mute: #e5e7eb;
+}
+
+/*SETUP*/
+
+* {
+    box-sizing: border-box;
+}
+
+picture {
+    display: block;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+p a, li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+
+/*DEV STYLES*/
+/*body * {
+    border: 1px solid blue;
+    padding: 2px;
+}*/
+
+/*inner-column {
+    border: 8px solid orange;
+}
+garphic-diptych {
+    border: 8px solid dodgerblue;
+}
+
+header, footer, main {
+    border: 8px solid red;
+}
+
+section {
+    border: 8px solid lime;
+}*/
+
+
+/* structure */
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+inner-column {
+    display: block;
+    padding: 10px;
+    /**/
+    width: 98%;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    /**/
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+header inner-column {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.products inner-column {
+    padding-top: 3vh;
+    padding-bottom: 7vh;
+}
+
+.call-to-action inner-column {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.quote inner-column {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.right .links {
+    display: flex;
+    gap: 10px;
+}
+
+footer inner-column {
+    padding: 10px;
+}
+
+section {
+    
+}
+
+/*TYPOGRAPHY*/
+
+.loud-voice {
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: .9;
+
+}
+
+@media (min-width: 700px)  {
+    .loud-voice {
+        font-size: 40px;
+    }
+}
+
+.calm-voice {
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.3
+}
+
+.logo-voice {
+    font-family: sans-serif;
+    font-size: 24px; 
+    font-weight: bold; 
+}
+
+.quote-voice {
+    font-family: Helvetica;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 100;
+    color: #1F2937;
+}
+
+
+
+
+
+
+
+/*COMPONENTS*/
+
+.button {
+    font-family: sans-serif;
+    display: inline-block;
+    background-color: var(--color);
+    color: white;
+    padding: 0.6em 1em;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    
+    
+}
+
+.modal .button {
+    border: 2px solid var(--white);
+}
+
+product-card {
+    display: block;
+}
+
+.product-image {
+    border-radius: 25px;
+    border: 3px solid var(--color);
+}
+
+/*MODULES*/
+
+graphic-diptych {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+
+}
+
+graphic-diptych picture {
+    
+}
+
+
+graphic-diptych text-content p {
+    margin-top: 10px;
+
+}
+
+graphic-diptych text-content .button {
+    margin-top: 10px;
+    
+}
+
+
+
+
+@media (min-width: 700px) {
+    graphic-diptych {
+        
+        flex-direction: row-reverse;
+       
+    }
+    graphic-diptych :is(text-content, picture) {
+        flex-basis: 50%;
+    }
+}
+
+
+
+products-grid {
+    display: block;
+    text-align: center;
+}
+
+products-grid .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1em;
+}
+
+.product-header {
+    margin-bottom: 3vh;
+
+}
+
+@media (min-width: 700px) {
+    product-grid :is(text-content, picture) {
+        flex-basis: 50%;
+    }
+}
+
+
+.welcome {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.about {
+    background-color: salmon;
+    color: white;
+}
+
+header {
+    background-color: var(--dark);
+    color: white;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mute);
+}
+
+
+
+
+.source {
+    margin-left: auto;
+    text-align: end;
+    margin-top: 12px;
+}
+
+
+
+
+.call-to-action inner-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: var(--color);
+    width: 98%;
+    border-radius: 10px;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    color: var(--white);
+}
+
+
+
+button.cancel {
+    background: white;
+    border: 1px solid #ddd;
+    color: royalblue;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.modal-text {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+}
+  
+footer {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 1vh;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
